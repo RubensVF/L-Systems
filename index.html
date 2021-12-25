@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="flex text-white">
+      <div class="bg-[#000] h-screen w-72 hidden md:block" id="menu">
+         <h1 class=" font-sans text-center text-2xl font-semibold m-10">L-Systems</h1>
+         <div class="m-5">
+           <!--
+          <p class=" font-sans font-semibold mb-2 mt-2">Starting position</p>
+          <div class="flex">
+            <p class="">x: </p>
+            <input type="number" class="bg-gray-900 text-gray-400 w-16 h-7 p-2 rounded-lg" value=0 id="x0">
+            <p class=" ml-4 ">y: </p>
+            <input type="number" class="bg-gray-900 text-gray-400 w-16 h-7 p-2 rounded-lg" value=0 id="y0">
+          </div>
+          -->
+          <p class=" font-sans font-semibold mb-2 mt-2">Line length</p>
+          <input type="number" class="bg-gray-900 text-gray-400  h-7 p-2 rounded-lg" value=1 id="lineLength">
+          <!--
+          <p class=" font-sans font-semibold mb-2 mt-2">Starting Angle</p>
+          <input type="number" class="bg-gray-900 text-gray-400  h-7 p-2 rounded-lg" value=0 id="iniAngle"> 
+          -->
+          <p class=" font-sans font-semibold mb-2 mt-2">Rotation Angle</p>
+          <input type="number" class="bg-gray-900 text-gray-400  h-7 p-2 rounded-lg" value=90 id="rotAngle">
+          <p class=" font-sans font-semibold mb-2 mt-2">Iteraitions</p>
+          <input type="number" class="bg-gray-900 text-gray-400  h-7 p-2 rounded-lg" value=3 id="iteraitions">
+          <p class=" font-sans font-semibold mb-2 mt-2">Axiom</p>
+          <input type="text" class="bg-gray-900 text-gray-400 h-7 p-2 rounded-lg" value="F+F" id="axiom">
+          <p class=" font-sans font-semibold mb-2 mt-2">Rules</p>
+          <div id="rules">
+            <div class="flex mt-3">
+              <input type="text" class="bg-gray-900 text-gray-400 w-1/6 h-7 p-2 rounded-lg variable" maxlength="1" value="F"> = 
+              <input type="text" class="bg-gray-900 text-gray-400 w-4/6 h-7 p-2 rounded-lg rule" value="F+F"> 
+            </div>
+          </div>
+          <button class="bg-gray-900 ml-12 mt-4 p-2 rounded-lg hover:bg-gray-700" id="add-rules">Add rule</button>
+          <button class="bg-blue-800 ml-12 mt-4 p-2 rounded-lg hover:bg-blue-500" id="generate">Generate</button>
+         </div>
+      </div>
+      <div class="w-full h-screen bg-red-700 relative" id="canvas">
+        <button class="absolute left-4 top-4 font-bold text-lg md:hidden" onclick="menu(event)">Menu</button>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      function deleteRule(event){
+      event.path[1].remove();
+      }
+      function menu(event){
+        document.getElementById('menu').classList.toggle('hidden');
+        if(event.target.textContent==='Menu'){
+          event.target.textContent='Close'
+        }else{
+          event.target.textContent='Menu'
+        }
+      }
+    </script>
+  </body>
+</html>
